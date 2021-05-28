@@ -1,0 +1,35 @@
+{
+	"name": "spider-node",
+	"version": "1.0.0",
+	"private": true,
+	"description": "用于spider-ui项目的后端支撑",
+	"scripts": {
+		"start": "nodemon --inspect bin/www",
+		"dev": "nodemon bin/www",
+		"prd": "pm2 start bin/www",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"spider-node"
+	],
+	"author": "xiezy",
+	"license": "ISC",
+	"dependencies": {
+		"debug": "^4.1.1",
+		"koa": "^2.7.0",
+		"koa-bodyparser": "^4.2.1",
+		"koa-convert": "^1.2.0",
+		"koa-json": "^2.0.2",
+		"koa-jwt": "^3.6.0",
+		"koa-logger": "^3.2.0",
+		"koa-router": "^7.4.0",
+		"koa-static": "^5.0.0"
+	},
+	"devDependencies": {
+		"inquirer": "^8.1.0",
+		"mysql2": "^2.2.5",
+		"nodemon": "^1.19.1",
+		"sequelize": "^6.6.2",
+		"sequelize-cli": "^6.2.0"
+	}
+}
