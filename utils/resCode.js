@@ -37,6 +37,8 @@ const PARAM_TYPE_ERROR = async (ctx, msg = "请求参数类型错误") =>
 	new ParameterError(1003, msg).throwErr(ctx)
 const PARAM_NOT_COMPLETE = async (ctx, msg = "请求参数缺失") =>
 	new ParameterError(1004, msg).throwErr(ctx)
+const DATABASE_CONNECTION_FAIL = async (ctx,msg) =>
+	new SuccessModel(2008, msg || "数据库连接失败").success(ctx)
 
 // 401
 // const generateErr = async (CLASS) => {
@@ -88,6 +90,7 @@ module.exports = {
 	NotFound,
 	FAIL,
 	FILE_UPLOAD_FAIL,
+	DATABASE_CONNECTION_FAIL
 }
 
 // /* 接口异常 */

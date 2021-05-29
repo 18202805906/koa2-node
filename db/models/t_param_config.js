@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class t_schedul_config extends Model {
+  class t_param_config extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,16 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  t_schedul_config.init({
-    scheduleName: DataTypes.STRING,
-    jobName: DataTypes.STRING,
-    jobCode: DataTypes.STRING,
-    retryNumber: DataTypes.INTEGER,
-    shutStatus: DataTypes.STRING,
-    timesLimitType: DataTypes.STRING,
-    timesLimitTotalNumber: DataTypes.INTEGER,
-    executionIntervalUnit: DataTypes.STRING,
-    executionIntervalValue: DataTypes.INTEGER,
+  t_param_config.init({
     createTime: DataTypes.DATE,
     updateTime: DataTypes.DATE,
     createBy: DataTypes.STRING,
@@ -30,9 +21,10 @@ module.exports = (sequelize, DataTypes) => {
     remove: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 't_schedul_config',
+    modelName: 't_param_config',
+    //timestamps: false,
     createdAt: 'createTime',
-    updatedAt: 'updateTime'
+    updatedAt: 'updateTime',
   });
-  return t_schedul_config;
+  return t_param_config;
 };

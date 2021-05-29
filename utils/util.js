@@ -1,3 +1,5 @@
+const sequelize = require('sequelize');
+const { DATA_SOURCE_TYPE } = require("./dictionary");
 
 // 生成uuid
 const getUuid = function() {
@@ -28,7 +30,21 @@ const formate = function(date, fmt) {
    return fmt; 
 }
 
+const connectDb = function(databaseInfo){
+    const { datasourceName, username,  password, type, ip, port} = databaseInfo;
+    //创建连接数据库的实例
+    return  new sequelize(datasourceName, username, password, {
+        // the sql dialect of the database
+        dialect: DATA_SOURCE_TYPE[type],
+        // custom host; default: localhost
+        host: ip,
+        // custom port; default: dialect default
+        port: port
+  });
+}
+
 module.exports = {
     getUuid,
-    formate
+    formate,
+    connectDb
 }

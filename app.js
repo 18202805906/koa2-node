@@ -32,12 +32,16 @@ app.use(async (ctx, next) => {
 // routes
 const dataOrigin = require('./routes/dataOrigin');
 const task = require('./routes/task-config/index');
+const inputParamConfig = require('./routes/task-config/inputParamConfig');
 const logTable = require('./routes/logTable');
+const schedulConfig = require('./routes/schedulConfig');
 
 // routes definition
 app.use(dataOrigin.routes(), dataOrigin.allowedMethods());
 app.use(task.routes(), task.allowedMethods());
 app.use(logTable.routes(), logTable.allowedMethods());
+app.use(schedulConfig.routes(), schedulConfig.allowedMethods());
+app.use(inputParamConfig.routes(), inputParamConfig.allowedMethods());
 
 // 404
 app.use(async (ctx, next) => {

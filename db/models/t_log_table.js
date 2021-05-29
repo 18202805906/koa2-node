@@ -35,7 +35,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 't_log_table',
-    timestamps: false,
     createdAt: 'createTime',
     updatedAt: 'updateTime'
   });

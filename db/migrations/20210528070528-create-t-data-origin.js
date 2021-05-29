@@ -14,6 +14,10 @@ module.exports = {
         type: Sequelize.STRING(128),
         comment: '数据源名称'
       },
+      code: {
+        type: Sequelize.STRING(128),
+        comment: '编码'
+      },
       type: {
         allowNull: false,
         type: Sequelize.STRING(128),

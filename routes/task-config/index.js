@@ -1,7 +1,6 @@
 const router = require('koa-router')();
 const Op = require('sequelize').Op;
 const DbOperation = require("../../public/javascripts/dbCommon");
-const models = require('../../db/models');
 const { SUCCESS } = require("../../utils/resCode");
 const { getUuid } = require("../../utils/util");
 let dbCommon = new DbOperation('t_task');
@@ -20,6 +19,18 @@ router.get('/jobConfigs/page', async (ctx)=> {
 router.get('/jobConfigs/getCode', async(ctx)=>{
     await SUCCESS(ctx, getUuid(), "操作成功");
 });
+//不分页查询所有数据
+router.get('/jobConfigs/all', async(ctx)=>{
+    const where ={
+        remove:'0'
+    }
+    await dbCommon.findAll(ctx,where);
+});
+//获取国家组件认证信息
+router.get('/jobConfigs/GovAuthList', async(ctx)=>{
+    await new DbOperation('t_gov_auth').findAll(ctx, {remove:'0'});
+});
+
 //删除
 router.delete('/jobConfigs/:id', async(ctx)=>{
     await dbCommon.delete(ctx);

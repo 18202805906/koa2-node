@@ -14,15 +14,17 @@ class DbOperation {
      * @param {*} ctx koa回调参数
      * @param {*} where 数据库where条件
      */
-    async findAndCountAll(ctx, where = {}){
+    async findAndCountAll(ctx, where = {}, include=[]){
         let {size, current} = ctx.query;
-        let offset = (current-1)*size;
+        let offset = (Number(current)-1)*size;
         //查询且汇集总数
         let list = await models[this.tableName].findAndCountAll({
             where,
             order: [['updateTime', 'DESC']],
             offset,
-            size
+            size: Number(size),
+            //用于关联查询
+            include,
         });
         await SUCCESS(
             ctx,
@@ -50,9 +52,8 @@ class DbOperation {
      * 用于单条数据查询
      * @param {*} ctx koa回调参数
      */
-      async findOne(ctx){
-        let id = Number(ctx.params.id);
-        let result = await models[this.tableName].findOne({where:{id}});
+      async findOne(ctx, where={id: Number(ctx.params.id)}){
+        let result = await models[this.tableName].findOne({where});
         await SUCCESS(
             ctx,
             {
@@ -66,9 +67,10 @@ class DbOperation {
      * @param {*} ctx koa回调参数
      */
       async update(ctx){
+        let params = Object.keys(ctx.request.body).length ?  ctx.request.body: ctx.params;
         await models[this.tableName].update({
-            ...ctx.request.body,
-        },{where:{id:ctx.request.body.id}});
+            ...params
+        },{where:{id:params.id}});
         await SUCCESS(
             ctx,
             null,
@@ -85,8 +87,25 @@ class DbOperation {
           });
         await SUCCESS(
             ctx,
-            null,
+            {},
             "新增成功"
+        )
+     };
+     /**
+     * 部分也查询数据
+     * @param {*} ctx koa回调参数
+     * @param {*} where 查询条件
+     * @param {*} attributes 查询的字段
+     */
+      async findAll(ctx,where={},attributes=null){
+        let list = await models[this.tableName].findAll({
+            attributes,
+            where
+        });
+        await SUCCESS(
+            ctx,
+            list,
+            "查询成功"
         )
      };
 }

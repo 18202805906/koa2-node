@@ -13,15 +13,15 @@ module.exports = {
         type: Sequelize.STRING(128),
         comment: '调度名称',
       },
-      jobId: {
-        allowNull: false,
-        type: Sequelize.INTEGER(8),
-        comment: '任务id',
-      },
       jobCode: {
         allowNull: false,
         type: Sequelize.STRING(128),
         comment: '任务编码',
+      },
+      jobName: {
+        allowNull: false,
+        type: Sequelize.STRING(128),
+        comment: '任务名称',
       },
       retryNumber: {
         allowNull: false,

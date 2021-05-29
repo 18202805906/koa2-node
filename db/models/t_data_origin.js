@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     ip: DataTypes.STRING,
+    code: DataTypes.STRING,
     port: DataTypes.INTEGER,
     datasourceName: DataTypes.STRING,
     username: DataTypes.STRING,

@@ -2,8 +2,9 @@
 const {
   Model
 } = require('sequelize');
+const {formate} = require("../../utils/util");
 module.exports = (sequelize, DataTypes) => {
-  class t_schedul_config extends Model {
+  class t_gov_auth extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,26 +14,18 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  t_schedul_config.init({
-    scheduleName: DataTypes.STRING,
-    jobName: DataTypes.STRING,
-    jobCode: DataTypes.STRING,
-    retryNumber: DataTypes.INTEGER,
-    shutStatus: DataTypes.STRING,
-    timesLimitType: DataTypes.STRING,
-    timesLimitTotalNumber: DataTypes.INTEGER,
-    executionIntervalUnit: DataTypes.STRING,
-    executionIntervalValue: DataTypes.INTEGER,
-    createTime: DataTypes.DATE,
+  t_gov_auth.init({
+    nationalPluginConfigCode: DataTypes.STRING,
+    name: DataTypes.STRING,
     updateTime: DataTypes.DATE,
     createBy: DataTypes.STRING,
     updateBy: DataTypes.STRING,
     remove: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 't_schedul_config',
+    modelName: 't_gov_auth',
     createdAt: 'createTime',
     updatedAt: 'updateTime'
   });
-  return t_schedul_config;
+  return t_gov_auth;
 };
