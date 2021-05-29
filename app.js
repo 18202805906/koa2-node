@@ -31,10 +31,13 @@ app.use(async (ctx, next) => {
 
 // routes
 const dataOrigin = require('./routes/dataOrigin');
+const task = require('./routes/task-config/index');
+const logTable = require('./routes/logTable');
 
 // routes definition
 app.use(dataOrigin.routes(), dataOrigin.allowedMethods());
-
+app.use(task.routes(), task.allowedMethods());
+app.use(logTable.routes(), logTable.allowedMethods());
 
 // 404
 app.use(async (ctx, next) => {

@@ -25,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 't_task',
-    timestamps: false,
     createdAt: 'createTime',
     updatedAt: 'updateTime'
   });

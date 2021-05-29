@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const {formate} = require("../../utils/util");
 module.exports = (sequelize, DataTypes) => {
   class t_log_table extends Model {
     /**
@@ -19,7 +20,14 @@ module.exports = (sequelize, DataTypes) => {
     inputParams: DataTypes.TEXT,
     result: DataTypes.TEXT,
     pageIndex: DataTypes.STRING,
-    createTime: DataTypes.DATE,
+    createTime: {
+      type:DataTypes.DATE,
+      get(){
+        const createTime = this.getDataValue('createTime');
+        return formate(createTime, "yyyy-MM-dd hh:mm:ss");
+
+      }
+    },
     updateTime: DataTypes.DATE,
     createBy: DataTypes.STRING,
     updateBy: DataTypes.STRING,
