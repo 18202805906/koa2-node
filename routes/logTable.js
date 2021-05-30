@@ -1,10 +1,13 @@
-const router = require('koa-router')();
+const router = require('koa-router')({
+  //路由前缀
+  prefix: '/jobFailRecord'
+});
 const Op = require('sequelize').Op;
 const DbOperation = require("../public/javascripts/dbCommon");
 let dbCommon = new DbOperation('t_log_table');
 
 //分页查询接口数据
-router.get('/jobFailRecord/page', async (ctx)=> {
+router.get('/page', async (ctx)=> {
   let { jobName } = ctx.query;
   const where ={
       remove:'0',

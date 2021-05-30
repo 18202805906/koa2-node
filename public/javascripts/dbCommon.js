@@ -65,15 +65,16 @@ class DbOperation {
      /**
      * 用于修改数据
      * @param {*} ctx koa回调参数
+     * @param {*} where 查询条件
      */
-      async update(ctx){
+      async update(ctx, where={id:params.id}){
         let params = Object.keys(ctx.request.body).length ?  ctx.request.body: ctx.params;
         await models[this.tableName].update({
             ...params
-        },{where:{id:params.id}});
+        },{where});
         await SUCCESS(
             ctx,
-            null,
+            where,
             "修改成功"
         )
      };

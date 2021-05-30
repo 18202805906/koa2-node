@@ -1,4 +1,7 @@
-const router = require('koa-router')();
+const router = require('koa-router')({
+  //路由前缀
+  prefix: '/scheduled-configs'
+});
 const sequelize = require('sequelize')
 const Op = sequelize.Op;
 const DbOperation = require("../public/javascripts/dbCommon");
@@ -6,7 +9,7 @@ let dbCommon = new DbOperation('t_schedul_config');
 const models = require('../db/models');
 
 //分页查询接口数据
-router.get('/scheduled-configs', async (ctx)=> {
+router.get('/', async (ctx)=> {
     //表关联
     // models.t_schedul_config.hasOne(models.t_task);
     // models.t_schedul_config.belongsTo(models.t_task, { as:'tt', foreignKey: 'jobId', targetKey: 'id'});
@@ -32,23 +35,23 @@ router.get('/scheduled-configs', async (ctx)=> {
 });
 
 //删除
-router.delete('/scheduled-configs/:id', async(ctx)=>{
+router.delete('/:id', async(ctx)=>{
   await dbCommon.delete(ctx);
 });
 //查询单条数据
-router.get('/scheduled-configs/:id', async(ctx)=>{
+router.get('/:id', async(ctx)=>{
   await dbCommon.findOne(ctx);
 });
 //修改数据
-router.put('/scheduled-configs/:id', async(ctx)=>{
+router.put('/:id', async(ctx)=>{
   await dbCommon.update(ctx);
 });
 //新增数据
-router.post('/scheduled-configs', async(ctx)=>{
+router.post('/', async(ctx)=>{
   await dbCommon.create(ctx);
 });
 //修改任务状态
-router.put('/scheduled-configs/:id/:shutStatus', async(ctx)=>{
+router.put('/:id/:shutStatus', async(ctx)=>{
     await dbCommon.update(ctx);
   });
   

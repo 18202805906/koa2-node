@@ -1,4 +1,7 @@
-const router = require('koa-router')();
+const router = require('koa-router')({
+  //路由前缀
+  prefix: '/dataSourceConfig'
+});
 const Op = require('sequelize').Op;
 const DbOperation = require("../public/javascripts/dbCommon");
 const { getUuid ,connectDb } = require("../utils/util");
@@ -8,7 +11,7 @@ const { DATABASE_CONNECTION_FAIL, SUCCESS } = require("../utils/resCode");
 let dbCommon = new DbOperation('t_data_origin');
 
 //分页查询接口数据
-router.get('/dataSourceConfig/page', async (ctx)=> {
+router.get('/page', async (ctx)=> {
   let { aliasName } = ctx.query;
   const where ={remove:'0'};
   aliasName && (where.aliasName = aliasName);
@@ -16,11 +19,11 @@ router.get('/dataSourceConfig/page', async (ctx)=> {
 });
 
 //获取全部的数据
-router.get('/dataSourceConfig/getAll', async(ctx)=>{
+router.get('/getAll', async(ctx)=>{
   await dbCommon.findAll(ctx,{remove:'0'});
 });
 //获取数据源下的表
-router.get('/dataSourceConfig/tableNameListByDbCode', async(ctx)=>{
+router.get('/tableNameListByDbCode', async(ctx)=>{
   let { dataSourceCode } = ctx.query; 
   //查询数据源信息
   const databaseInfo = await models.t_data_origin.findOne({where:{code:dataSourceCode}});
@@ -38,7 +41,7 @@ router.get('/dataSourceConfig/tableNameListByDbCode', async(ctx)=>{
 
 });
 //获取表字段
-router.get('/dataSourceConfig/fieldListByTableName', async(ctx)=>{
+router.get('/fieldListByTableName', async(ctx)=>{
   let { dataSourceCode, tableName } = ctx.query; 
   //查询数据源信息
   const databaseInfo = await models.t_data_origin.findOne({where:{code:dataSourceCode}});
@@ -58,19 +61,19 @@ router.get('/dataSourceConfig/fieldListByTableName', async(ctx)=>{
 
 });
 //删除
-router.delete('/dataSourceConfig/:id', async(ctx)=>{
+router.delete('/:id', async(ctx)=>{
   await dbCommon.delete(ctx);
 });
 //查询单条数据
-router.get('/dataSourceConfig/:id', async(ctx)=>{
+router.get('/:id', async(ctx)=>{
   await dbCommon.findOne(ctx);
 });
 //修改数据
-router.put('/dataSourceConfig', async(ctx)=>{
+router.put('', async(ctx)=>{
   await dbCommon.update(ctx);
 });
 //新增数据
-router.post('/dataSourceConfig', async(ctx)=>{
+router.post('', async(ctx)=>{
   ctx.request.body.code = getUuid();
   await dbCommon.create(ctx);
 });
