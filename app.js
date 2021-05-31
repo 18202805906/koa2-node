@@ -43,11 +43,14 @@ app.use(async (ctx, next) => {
 // routes
 const login = require('./routes/login');
 const sysConfig = require('./routes/sysConfig');
+const file = require('./routes/file');
+const group = require('./routes/group');
 
 // routes definition
 app.use(login.routes(), login.allowedMethods());
 app.use(sysConfig.routes(), sysConfig.allowedMethods());
-
+app.use(file.routes(), file.allowedMethods());
+app.use(group.routes(), group.allowedMethods());
 // 404
 app.use(async (ctx, next) => {
 	await NotFound(ctx)

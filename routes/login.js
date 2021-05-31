@@ -13,7 +13,7 @@ const router = require('koa-router')({
   const { getCaptcha } = require("../utils/captcha");
   const DbOperation = require("../public/javascripts/dbCommon");
   const models = require('../db/models');
-  const ParamCheck = require("../middleWares/paramCheck")
+  const ParamCheck = require("../middleWares/paramCheck");
   let dbCommon = new DbOperation('t_user');
 
   //用户登录

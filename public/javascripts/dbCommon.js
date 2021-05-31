@@ -15,7 +15,7 @@ class DbOperation {
      * @param {*} where 数据库where条件
      */
     async findAndCountAll(ctx, where = {}, include=[]){
-        let {size, current} = ctx.query;
+        let {pageSize:size, pageIndex:current} = ctx.request.body;
         let offset = (Number(current)-1)*size;
         //查询且汇集总数
         let list = await models[this.tableName].findAndCountAll({
