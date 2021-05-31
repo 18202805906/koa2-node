@@ -1,12 +1,27 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('t_param_configs', {
+    await queryInterface.createTable('t_sys_config', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER(32),
+        comment: '表id'
+      },
+      name: {
+        allowNull: false,
+        type: Sequelize.STRING(128),
+        comment: '系统名称'
+      },
+      versionNum: {
+        type: Sequelize.STRING(128),
+        comment: '版本号'
+      },
+      iconPath: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+        comment: '图片路径'
       },
       remove: {
         defaultValue: '0',
@@ -36,6 +51,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('t_param_configs');
+    await queryInterface.dropTable('t_sys_config');
   }
 };

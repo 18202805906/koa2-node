@@ -7,6 +7,7 @@ let app = new Koa()
 
 const catchError = require("./middleWares/catchError");
 const { NotFound } = require("./utils/resCode");
+const jwtKoa = require("./middleWares/tokenAuth/index")
 
 // 全局处理错
 app.use(catchError);
@@ -28,20 +29,24 @@ app.use(async (ctx, next) => {
 	console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
+// // jwt
+// app.use(
+// 	jwtKoa({ debug: true, secret }).unless({
+// 		path: [
+// 			"/",
+// 			"/user/login",
+// 		],
+// 	})
+// )
+
 
 // routes
-const dataOrigin = require('./routes/dataOrigin');
-const task = require('./routes/task-config/index');
-const inputParamConfig = require('./routes/task-config/inputParamConfig');
-const logTable = require('./routes/logTable');
-const schedulConfig = require('./routes/schedulConfig');
+const login = require('./routes/login');
+const sysConfig = require('./routes/sysConfig');
 
 // routes definition
-app.use(dataOrigin.routes(), dataOrigin.allowedMethods());
-app.use(task.routes(), task.allowedMethods());
-app.use(logTable.routes(), logTable.allowedMethods());
-app.use(schedulConfig.routes(), schedulConfig.allowedMethods());
-app.use(inputParamConfig.routes(), inputParamConfig.allowedMethods());
+app.use(login.routes(), login.allowedMethods());
+app.use(sysConfig.routes(), sysConfig.allowedMethods());
 
 // 404
 app.use(async (ctx, next) => {

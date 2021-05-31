@@ -11,8 +11,9 @@ const {
  * @class paramCheck
  */
 class paramCheck {
-	constructor() {
-		this.rules = {}
+	constructor(tips) {
+		this.rules = {};
+		this.tips = tips
 	}
 	static async check(params, schema, ctx) {
 		const keys = Object.keys(schema)
@@ -21,8 +22,9 @@ class paramCheck {
 			for (let i = 0; i < keys.length; i++) {
 				const key = keys[i]
 				let rules = schema[key].rules
+				let tips = schema[key].tips ?  schema[key].tips: null;
 				// console.log(rules)
-				rulesCheck(params, key, rules)
+				rulesCheck(params, key, rules,  tips)
 			}
 			return
 			// return keys.every(async (key) => {
@@ -82,6 +84,12 @@ class paramCheck {
 		this.rules.isRequired = true
 		return this
 	}
+	// 是否为空
+	isEmpty(tips) {
+		this.rules.isEmpty = true;
+		this.tips = tips;
+		return this
+	}
 	// // 是否拥有某值
 	// has(...args) {
 	//   this.rules.has = args
@@ -100,7 +108,7 @@ class ParamError extends Error {
 	}
 }
 
-function rulesCheck(params, key, rules) {
+function rulesCheck(params, key, rules, tips) {
 	if (!requiredCheck()) {
 		return false
 	}
@@ -113,6 +121,9 @@ function rulesCheck(params, key, rules) {
 		}
 		if (!rules.isRequired && !params.hasOwnProperty(key)) {
 			return false
+		}
+		if (rules.isEmpty && !params[key]) {
+			throw new ParamError(`${tips ? tips: key}不能为空`, "paramNotComplete")
 		}
 		return true
 	}

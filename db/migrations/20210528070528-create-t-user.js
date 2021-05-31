@@ -1,20 +1,22 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('t_task_configs', {
+    await queryInterface.createTable('t_user', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER(32)
+        type: Sequelize.INTEGER(32),
+        comment: '表id'
       },
-      code: {
+      username: {
+        allowNull: false,
         type: Sequelize.STRING(128),
-        comment: '任务编码'
+        comment: '用户名称'
       },
-      configInfo: {
-        type: Sequelize.TEXT,
-        comment: '配置的画布信息'
+      password: {
+        type: Sequelize.STRING(128),
+        comment: '用户密码'
       },
       remove: {
         defaultValue: '0',
@@ -44,6 +46,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('t_task_configs');
+    await queryInterface.dropTable('t_user');
   }
 };

@@ -43,6 +43,7 @@ const connectDb = function(databaseInfo){
   });
 }
 
+
 module.exports = {
     getUuid,
     formate,

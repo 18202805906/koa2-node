@@ -2,7 +2,7 @@
 module.exports = {
   apps : [{
     //启动脚本路径
-    script: 'src/1Day/基础服务.js',
+    script: 'app.js',
     watch: false,
     //开启实例个数,在cluster模式下有效
     //instances: 2,
