@@ -9,8 +9,8 @@ const {
 } = require("../utils/resCode");
 
 router.post('/uploadIcon',upload.single('icon'),async (ctx) => {
-    const dirPath = module.parent.path;
-    await SUCCESS(ctx, path.join(dirPath, ctx.req.file.path), '上传成功');
+    const dir = 'api/';
+    await SUCCESS(ctx, dir + ctx.req.file.path, '上传成功');
 });
 
 

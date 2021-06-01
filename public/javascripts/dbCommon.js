@@ -21,21 +21,30 @@ class DbOperation {
         let list = await models[this.tableName].findAndCountAll({
             where,
             order: [['updateTime', 'DESC']],
-            offset,
-            size: Number(size),
+            offset: offset ? offset : null,
+            size: size ? Number(size) : null,
             //用于关联查询
             include,
         });
-        await SUCCESS(
-            ctx,
-            {
-            current: Number(current),
-            size:Number(size),
-            total: list.count,
-            records: list.rows
-            },
-            "查询成功"
-        )
+        if(ctx.originalUrl === '/api/queryApiList'){
+            await SUCCESS(
+                ctx,
+                list.rows,
+                "查询成功"
+            )
+        }else{
+            await SUCCESS(
+                ctx,
+                {
+                current: Number(current),
+                size:Number(size),
+                total: list.count,
+                records: list.rows
+                },
+                "查询成功"
+            )
+        }
+        
     };
     /**
      * 用于删除

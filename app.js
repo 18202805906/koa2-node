@@ -29,28 +29,38 @@ app.use(async (ctx, next) => {
 	console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
-// // jwt
-// app.use(
-// 	jwtKoa({ debug: true, secret }).unless({
-// 		path: [
-// 			"/",
-// 			"/user/login",
-// 		],
-// 	})
-// )
-
+// jwt,token校验中间件
+app.use(
+	jwtKoa({ debug: true, secret:'zw121_#jf55' }).unless({
+		//登录页面的请求不需要进行token校验
+		path: [
+			'/login',
+			/^\/login\/.*/,
+			'/sysConfig/info',
+			/^\/public\/.*/,
+		],
+	})
+)
 
 // routes
 const login = require('./routes/login');
 const sysConfig = require('./routes/sysConfig');
 const file = require('./routes/file');
 const group = require('./routes/group');
+const scene = require('./routes/scene');
+const apiCall = require('./routes/apiCall');
+const stats = require('./routes/stats');
+const image = require('./routes/image');
 
 // routes definition
 app.use(login.routes(), login.allowedMethods());
 app.use(sysConfig.routes(), sysConfig.allowedMethods());
 app.use(file.routes(), file.allowedMethods());
 app.use(group.routes(), group.allowedMethods());
+app.use(scene.routes(), scene.allowedMethods());
+app.use(apiCall.routes(), apiCall.allowedMethods());
+app.use(stats.routes(), stats.allowedMethods());
+app.use(image.routes(), image.allowedMethods());
 // 404
 app.use(async (ctx, next) => {
 	await NotFound(ctx)
