@@ -88,7 +88,6 @@ app.use(async (ctx, next) => {
 
 // error-handling
 app.on('error', (err, ctx) => {
-	debugger
   const code = err.statusCode || err.status || 500
 	// if (code === 500) {
 	// 	console.error("error>>>", err, ctx)
