@@ -1,13 +1,31 @@
 const Koa = require('koa');
 let app = new Koa()
-  , logger = require('koa-logger')
+//   , logger = require('koa-logger')
   , json = require('koa-json');
   // , views = require('koa-views')
   // , onerror = require('koa-onerror');
 
 const catchError = require("./middleWares/catchError");
 const { NotFound } = require("./utils/resCode");
-const jwtKoa = require("./middleWares/tokenAuth/index")
+const jwtKoa = require("./middleWares/tokenAuth/index");
+const logger = require('./utils/log4jsLogger'); //上面配置的log4js地址
+
+/**
+ * 创建日志代理方法
+ * @param logLevel 日志级别
+ * @param logger 日志对象
+ * @return {function}
+ */
+ function createLogProxy (logLevel, logger) {
+    return (...param) => {
+        logger[logLevel](...param);
+    };
+}
+//重写console
+console.log = createLogProxy('debug', logger);
+console.info = createLogProxy('info', logger);
+console.warn = createLogProxy('warn', logger);
+console.error = createLogProxy('error', logger);
 
 // 全局处理错
 app.use(catchError);
@@ -18,7 +36,7 @@ app.use(
 	})
 )
 app.use(json());
-app.use(logger());
+// app.use(logger());
 app.use(require('koa-static')(__dirname + '/public'));
 
 // logger
@@ -26,8 +44,10 @@ app.use(async (ctx, next) => {
 	const start = new Date()
 	await next()
 	const ms = new Date() - start
-	console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
+	console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 })
+
+
 
 // jwt,token校验中间件
 app.use(
@@ -68,10 +88,12 @@ app.use(async (ctx, next) => {
 
 // error-handling
 app.on('error', (err, ctx) => {
+	debugger
   const code = err.statusCode || err.status || 500
-	if (code === 500) {
-		console.error("error>>>", err, ctx)
-	}
+	// if (code === 500) {
+	// 	console.error("error>>>", err, ctx)
+	// }
+	console.error("error>>>", err, ctx)
 });
 
 module.exports = app;

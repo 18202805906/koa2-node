@@ -12,10 +12,10 @@ module.exports = async (ctx, next) => {
   try {
     await next()
   } catch (err) {
+    console.error(`${ctx.method} ${ctx.url} ${err}`);
     if (err.flag === 'ErrorModel') {
       format(err, ctx)
     } else {
-      console.log(err)
       format(new ErrorModel(), ctx)
     }
   }

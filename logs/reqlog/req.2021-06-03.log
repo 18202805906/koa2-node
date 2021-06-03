@@ -1,0 +1,94 @@
+2021-06-03 11:20:58.518 [DEBUG] GET /login/public-key - 4ms
+2021-06-03 11:20:58.529 [DEBUG] GET /login/captcha - 4ms
+2021-06-03 11:20:58.579 [DEBUG] Executing (default): SELECT `id`, `name`, `versionNum`, `iconPath`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_sys_configs` AS `t_sys_config` WHERE `t_sys_config`.`remove` = '0' LIMIT 1;
+2021-06-03 11:20:58.583 [DEBUG] GET /sysConfig/info - 52ms
+2021-06-03 11:20:58.595 [DEBUG] GET /public/uploads/icon-179c70131a4.jpg - 1ms
+2021-06-03 11:21:20.331 [DEBUG] GET /login/captcha - 4ms
+2021-06-03 11:22:03.103 [DEBUG] GET /login/captcha - 5ms
+2021-06-03 11:22:07.853 [DEBUG] GET /login/captcha - 3ms
+2021-06-03 11:22:08.875 [DEBUG] GET /login/captcha - 3ms
+2021-06-03 11:22:11.754 [DEBUG] Executing (default): SELECT `id`, `userName`, `password`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_users` AS `t_user` WHERE `t_user`.`username` = 'admin' LIMIT 1;
+2021-06-03 11:22:11.759 [DEBUG] Error: Empty key given
+    at NodeRSA.module.exports.NodeRSA.importKey (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\node-rsa\src\NodeRSA.js:176:19)
+    at decrypted (E:\前端技术学习空间\node\koa2+node\easy-post-node\utils\cryp.js:20:6)
+    at E:\前端技术学习空间\node\koa2+node\easy-post-node\routes\login.js:41:17
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async E:\前端技术学习空间\node\koa2+node\easy-post-node\app.js:45:2
+    at async serve (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-static\index.js:53:9)
+    at async bodyParser (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-bodyparser\index.js:95:5)
+    at async module.exports (E:\前端技术学习空间\node\koa2+node\easy-post-node\middleWares\catchError.js:13:5)
+2021-06-03 11:22:11.953 [DEBUG] GET /login/captcha - 3ms
+2021-06-03 11:22:25.282 [DEBUG] GET /login/public-key - 6ms
+2021-06-03 11:22:25.295 [DEBUG] GET /login/captcha - 4ms
+2021-06-03 11:22:25.358 [DEBUG] Executing (default): SELECT `id`, `name`, `versionNum`, `iconPath`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_sys_configs` AS `t_sys_config` WHERE `t_sys_config`.`remove` = '0' LIMIT 1;
+2021-06-03 11:22:25.364 [DEBUG] GET /sysConfig/info - 65ms
+2021-06-03 11:22:25.377 [DEBUG] GET /public/uploads/icon-179c70131a4.jpg - 2ms
+2021-06-03 11:22:29.322 [DEBUG] Executing (default): SELECT `id`, `userName`, `password`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_users` AS `t_user` WHERE `t_user`.`username` = 'admin' LIMIT 1;
+2021-06-03 11:22:29.331 [DEBUG] POST /login - 11ms
+2021-06-03 11:22:29.516 [DEBUG] Executing (default): SELECT `id`, `name`, `versionNum`, `iconPath`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_sys_configs` AS `t_sys_config` WHERE `t_sys_config`.`remove` = '0' LIMIT 1;
+2021-06-03 11:22:29.520 [DEBUG] GET /sysConfig/info - 5ms
+2021-06-03 11:22:29.822 [DEBUG] Executing (default): SELECT count(`t_scene`.`id`) AS `count` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0';
+2021-06-03 11:22:29.826 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0' ORDER BY `t_scene`.`updateTime` DESC;
+2021-06-03 11:22:29.836 [DEBUG] POST /api/queryApiList - 21ms
+2021-06-03 11:22:31.611 [DEBUG] Executing (default): SELECT count(`t_scene`.`id`) AS `count` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0';
+2021-06-03 11:22:31.614 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0' ORDER BY `t_scene`.`updateTime` DESC;
+2021-06-03 11:22:31.618 [DEBUG] POST /api/queryApiList - 9ms
+2021-06-03 11:22:32.553 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`id` = 6;
+2021-06-03 11:22:32.557 [DEBUG] GET /api/getApiInfoById/6 - 6ms
+2021-06-03 11:24:31.176 [DEBUG] Executing (default): SELECT count(`t_scene`.`id`) AS `count` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0';
+2021-06-03 11:24:31.181 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0' ORDER BY `t_scene`.`updateTime` DESC;
+2021-06-03 11:24:31.185 [DEBUG] Executing (default): SELECT `id`, `name`, `versionNum`, `iconPath`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_sys_configs` AS `t_sys_config` WHERE `t_sys_config`.`remove` = '0' LIMIT 1;
+2021-06-03 11:24:31.188 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`id` = 6;
+2021-06-03 11:24:31.196 [DEBUG] GET /sysConfig/info - 55ms
+2021-06-03 11:24:31.206 [DEBUG] POST /api/queryApiList - 116ms
+2021-06-03 11:24:31.210 [DEBUG] GET /api/getApiInfoById/6 - 60ms
+2021-06-03 11:24:31.217 [DEBUG] GET /public/uploads/icon-179c70131a4.jpg - 2ms
+2021-06-03 11:25:54.472 [DEBUG] Executing (default): SELECT count(`t_scene`.`id`) AS `count` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0';
+2021-06-03 11:25:54.476 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0' ORDER BY `t_scene`.`updateTime` DESC;
+2021-06-03 11:25:54.479 [DEBUG] Executing (default): SELECT `id`, `name`, `versionNum`, `iconPath`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_sys_configs` AS `t_sys_config` WHERE `t_sys_config`.`remove` = '0' LIMIT 1;
+2021-06-03 11:25:54.482 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`id` = 6;
+2021-06-03 11:25:54.490 [DEBUG] GET /sysConfig/info - 49ms
+2021-06-03 11:25:54.497 [DEBUG] POST /api/queryApiList - 113ms
+2021-06-03 11:25:54.502 [DEBUG] GET /api/getApiInfoById/6 - 54ms
+2021-06-03 11:25:54.511 [DEBUG] GET /public/uploads/icon-179c70131a4.jpg - 2ms
+2021-06-03 11:26:28.045 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`id` = 9;
+2021-06-03 11:26:28.053 [DEBUG] GET /api/getApiInfoById/9 - 66ms
+2021-06-03 11:26:33.261 [DEBUG] Executing (default): SELECT count(`t_scene`.`id`) AS `count` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0';
+2021-06-03 11:26:33.272 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0' ORDER BY `t_scene`.`updateTime` DESC;
+2021-06-03 11:26:33.277 [DEBUG] Executing (default): SELECT `id`, `name`, `versionNum`, `iconPath`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_sys_configs` AS `t_sys_config` WHERE `t_sys_config`.`remove` = '0' LIMIT 1;
+2021-06-03 11:26:33.280 [DEBUG] POST /api/queryApiList - 25ms
+2021-06-03 11:26:33.289 [DEBUG] GET /sysConfig/info - 24ms
+2021-06-03 11:26:33.296 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`id` = 9;
+2021-06-03 11:26:33.303 [DEBUG] GET /api/getApiInfoById/9 - 8ms
+2021-06-03 11:26:33.338 [DEBUG] GET /public/uploads/icon-179c70131a4.jpg - 3ms
+2021-06-03 11:28:12.957 [DEBUG] Executing (default): SELECT count(`t_scene`.`id`) AS `count` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0';
+2021-06-03 11:28:12.960 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0' ORDER BY `t_scene`.`updateTime` DESC;
+2021-06-03 11:28:12.962 [DEBUG] Executing (default): SELECT `id`, `name`, `versionNum`, `iconPath`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_sys_configs` AS `t_sys_config` WHERE `t_sys_config`.`remove` = '0' LIMIT 1;
+2021-06-03 11:28:12.964 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`id` = 9;
+2021-06-03 11:28:12.969 [DEBUG] POST /api/queryApiList - 69ms
+2021-06-03 11:28:12.974 [DEBUG] GET /sysConfig/info - 33ms
+2021-06-03 11:28:12.977 [DEBUG] GET /api/getApiInfoById/9 - 34ms
+2021-06-03 11:28:13.016 [DEBUG] GET /public/uploads/icon-179c70131a4.jpg - 2ms
+2021-06-03 11:28:14.642 [ERROR] NotFoundError: 未找到api，请检查请求路径以及请求方法是否出错
+    at Object.throw (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa\lib\context.js:97:11)
+    at NotFoundError.throwErr (E:\前端技术学习空间\node\koa2+node\easy-post-node\utils\http-response\httpError.js:8:12)
+    at NotFound (E:\前端技术学习空间\node\koa2+node\easy-post-node\utils\resCode.js:66:4)
+    at E:\前端技术学习空间\node\koa2+node\easy-post-node\app.js:86:8
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-compose\index.js:42:32)
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-compose\index.js:42:32)
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-compose\index.js:42:32)
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-router\lib\router.js:332:32) {
+  code: 404,
+  flag: 'ErrorModel'
+}
+2021-06-03 11:30:00.504 [DEBUG] Executing (default): SELECT count(`t_scene`.`id`) AS `count` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0';
+2021-06-03 11:30:00.507 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`remove` = '0' ORDER BY `t_scene`.`updateTime` DESC;
+2021-06-03 11:30:00.508 [DEBUG] Executing (default): SELECT `id`, `name`, `versionNum`, `iconPath`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_sys_configs` AS `t_sys_config` WHERE `t_sys_config`.`remove` = '0' LIMIT 1;
+2021-06-03 11:30:00.509 [DEBUG] Executing (default): SELECT `id`, `name`, `apiUrl`, `apiMethod`, `responseContentType`, `dataShowPath`, `apiGroupId`, `timeout`, `description`, `successCondition`, `iconPath`, `contentType`, `authParamList`, `paramsInfo`, `dataShowJson`, `apiGroupName`, `createTime`, `updateTime`, `createBy`, `updateBy`, `remove` FROM `t_scenes` AS `t_scene` WHERE `t_scene`.`id` = 9;
+2021-06-03 11:30:00.514 [DEBUG] POST /api/queryApiList - 68ms
+2021-06-03 11:30:00.519 [DEBUG] GET /sysConfig/info - 29ms
+2021-06-03 11:30:00.522 [DEBUG] GET /api/getApiInfoById/9 - 29ms
+2021-06-03 11:30:00.560 [DEBUG] GET /public/uploads/icon-179c70131a4.jpg - 1ms
+2021-06-03 11:30:02.370 [ERROR] GET /apiCallHistory/pageList?apiId=9&pageSize=10&pageIndex=1 NotFoundError: 未找到api，请检查请求路径以及请求方法是否出错

@@ -1,0 +1,15 @@
+2021-06-03 11:28:14.644 [ERROR] NotFoundError: 未找到api，请检查请求路径以及请求方法是否出错
+    at Object.throw (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa\lib\context.js:97:11)
+    at NotFoundError.throwErr (E:\前端技术学习空间\node\koa2+node\easy-post-node\utils\http-response\httpError.js:8:12)
+    at NotFound (E:\前端技术学习空间\node\koa2+node\easy-post-node\utils\resCode.js:66:4)
+    at E:\前端技术学习空间\node\koa2+node\easy-post-node\app.js:86:8
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-compose\index.js:42:32)
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-compose\index.js:42:32)
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-router\lib\router.js:332:32)
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-compose\index.js:42:32)
+    at dispatch (E:\前端技术学习空间\node\koa2+node\easy-post-node\node_modules\koa-router\lib\router.js:332:32) {
+  code: 404,
+  flag: 'ErrorModel'
+}
+2021-06-03 11:30:02.371 [ERROR] GET /apiCallHistory/pageList?apiId=9&pageSize=10&pageIndex=1 NotFoundError: 未找到api，请检查请求路径以及请求方法是否出错
