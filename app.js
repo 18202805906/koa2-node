@@ -5,6 +5,7 @@ let app = new Koa()
   // , views = require('koa-views')
   // , onerror = require('koa-onerror');
 const cors = require('koa2-cors');  // 引入跨域
+const router = require('./routes');
 
 const catchError = require("./middleWares/catchError");
 const { NotFound } = require("./utils/resCode");
@@ -72,25 +73,9 @@ app.use(
 	})
 )
 
-// routes
-const login = require('./routes/login');
-const sysConfig = require('./routes/sysConfig');
-const file = require('./routes/file');
-const group = require('./routes/group');
-const scene = require('./routes/scene');
-const apiCall = require('./routes/apiCall');
-const stats = require('./routes/stats');
-const image = require('./routes/image');
+// router(app)
+app.use(router())
 
-// routes definition
-app.use(login.routes(), login.allowedMethods());
-app.use(sysConfig.routes(), sysConfig.allowedMethods());
-app.use(file.routes(), file.allowedMethods());
-app.use(group.routes(), group.allowedMethods());
-app.use(scene.routes(), scene.allowedMethods());
-app.use(apiCall.routes(), apiCall.allowedMethods());
-app.use(stats.routes(), stats.allowedMethods());
-app.use(image.routes(), image.allowedMethods());
 // 404
 app.use(async (ctx, next) => {
 	await NotFound(ctx)
