@@ -3,11 +3,17 @@
 	"version": "1.0.0",
 	"private": true,
 	"description": "用于easy-post项目的后端支撑",
+	"bin": "bin/www",
+	"pkg": {
+		"scripts": [],
+		"assets": []
+	},
 	"scripts": {
-		"start": "nodemon --inspect bin/www",
+		"start": "nodemon --inspect --exec babel-node bin/www",
 		"dev": "nodemon bin/www",
 		"prd": "pm2 start bin/www",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build:pkg": "pkg . -t win --out-path=dist/ --debug"
 	},
 	"keywords": [
 		"spider-node"
@@ -27,9 +33,14 @@
 		"koa-multer": "^1.0.2",
 		"koa-router": "^7.4.0",
 		"koa-static": "^5.0.0",
+		"koa2-cors": "^2.0.6",
 		"log4js": "^6.3.0"
 	},
 	"devDependencies": {
+		"@babel/cli": "^7.14.5",
+		"@babel/core": "^7.14.6",
+		"@babel/node": "^7.14.5",
+		"@babel/preset-env": "^7.14.5",
 		"babel-eslint": "^10.1.0",
 		"captchapng": "0.0.1",
 		"inquirer": "^8.1.0",
