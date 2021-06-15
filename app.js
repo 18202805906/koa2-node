@@ -4,6 +4,7 @@ let app = new Koa()
   , json = require('koa-json');
   // , views = require('koa-views')
   // , onerror = require('koa-onerror');
+const cors = require('koa2-cors');  // 引入跨域
 
 const catchError = require("./middleWares/catchError");
 const { NotFound } = require("./utils/resCode");
@@ -38,6 +39,15 @@ app.use(
 app.use(json());
 // app.use(logger());
 app.use(require('koa-static')(__dirname + '/public'));
+
+// 处理跨域的配置
+app.use(cors({
+	exposeHeaders: ['WWW-Authenticate', 'Server-Authorization', 'Date'],
+	maxAge: 100,
+	credentials: true,
+	allowMethods: ['GET', 'POST', 'OPTIONS'],
+	allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Custom-Header', 'anonymous'],
+}))
 
 // logger
 app.use(async (ctx, next) => {
