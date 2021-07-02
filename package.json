@@ -13,7 +13,7 @@
 		"dev": "nodemon bin/www",
 		"prd": "pm2 start bin/www",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build:pkg": "pkg . -t win --out-path=dist/ --debug"
+		"build": "webpack"
 	},
 	"keywords": [
 		"spider-node"
@@ -21,6 +21,8 @@
 	"author": "xiezy",
 	"license": "ISC",
 	"dependencies": {
+		"@babel/runtime": "^7.14.6",
+		"@babel/runtime-corejs3": "^7.14.7",
 		"axios": "^0.21.1",
 		"debug": "^4.1.1",
 		"jsonwebtoken": "^8.5.1",
@@ -40,8 +42,12 @@
 		"@babel/cli": "^7.14.5",
 		"@babel/core": "^7.14.6",
 		"@babel/node": "^7.14.5",
-		"@babel/preset-env": "^7.14.5",
+		"@babel/plugin-transform-runtime": "^7.14.5",
+		"@babel/preset-env": "^7.14.7",
+		"babel-loader": "^8.2.2",
+		"babel-minify-webpack-plugin": "^0.3.1",
 		"babel-eslint": "^10.1.0",
+		"clean-webpack-plugin": "^4.0.0-alpha.0",
 		"captchapng": "0.0.1",
 		"inquirer": "^8.1.0",
 		"koa-compose": "^4.1.0",
@@ -50,6 +56,9 @@
 		"nodemon": "^1.19.1",
 		"sequelize": "^6.6.2",
 		"sequelize-cli": "^6.2.0",
-		"svg-captcha": "^1.4.0"
+		"svg-captcha": "^1.4.0",
+		"webpack": "^4.46.0",
+		"webpack-cli": "^4.7.2",
+		"webpack-node-externals": "^3.0.0"
 	}
 }

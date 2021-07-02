@@ -4,3 +4,8 @@
 2021-06-15 10:43:37.011 [ERROR] GET /favicon.icoUnauthorizedError: token为空
 2021-06-15 10:49:42.060 [ERROR] GET /UnauthorizedError: token为空
 2021-06-15 10:49:42.088 [ERROR] GET /favicon.icoUnauthorizedError: token为空
+2021-06-15 11:08:13.069 [ERROR] GET /UnauthorizedError: token为空
+2021-06-15 11:08:15.137 [ERROR] GET /UnauthorizedError: token为空
+2021-06-15 11:08:15.196 [ERROR] GET /favicon.icoUnauthorizedError: token为空
+2021-06-15 11:08:20.033 [ERROR] GET /UnauthorizedError: token为空
+2021-06-15 11:08:20.056 [ERROR] GET /favicon.icoUnauthorizedError: token为空
